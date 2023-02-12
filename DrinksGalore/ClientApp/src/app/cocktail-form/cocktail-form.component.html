@@ -1,0 +1,18 @@
+<form #drinkForm="ngForm" (ngSubmit)="SearchDrinks(drinkForm)">
+    <input name="DrinkName" placeholder="Please enter a drink name" ngModel>
+    <button>Search</button>
+</form>
+
+<h1 *ngIf="!loggedIn">Try logging in to add to your favorites!</h1>
+
+<div *ngIf="resultCount > 0">
+    <div *ngFor="let drink of searchCocktail.drinks;index as i;">
+
+        <p>{{ drink.strDrink }}</p>
+        <img src="{{drink.strDrinkThumb}}" alt="">
+        <button *ngIf="loggedIn" (click)="AddToFavorites(i)">Favorite</button>
+    </div>
+</div>
+<div *ngIf="resultCount ==0">
+    <h1>No results found, please try again.</h1>
+</div>

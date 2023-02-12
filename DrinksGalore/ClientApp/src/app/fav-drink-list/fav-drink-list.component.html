@@ -1,0 +1,8 @@
+<div *ngFor="let drink of favDrinks;index as i;">
+
+    <p>{{ drink.name }}</p>
+    <img src="{{drink.thumbNail}}" alt="">
+    <button (click)="ShowDetails(i)">More Details</button>
+    <br/><br/>
+    <button (click)="RemoveFav(drink.id!)">Remove</button>
+</div>
